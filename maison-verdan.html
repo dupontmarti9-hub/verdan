@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison Verdan — Restaurant gastronomique, Paris</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --noir: #0c0c0c;
+    --beige: #e8e0d3;
+    --ivoire: #f7f4ee;
+    --taupe: #857b6c;
+    --texte: #3a3632;
+    --serif: "Cormorant Garamond", "Times New Roman", serif;
+    --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); font-weight: 300; font-size: 1.02rem; line-height: 1.75; color: var(--texte); background: var(--ivoire); }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible { outline: 2px solid var(--taupe); outline-offset: 4px; }
+
+  h1, h2 { font-family: var(--serif); font-weight: 300; line-height: 0.98; letter-spacing: -0.01em; color: var(--noir); text-transform: uppercase; }
+  h2 { font-size: clamp(2.3rem, 4.8vw, 4.4rem); }
+
+  .label { font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--taupe); }
+  .bouton { display: inline-block; padding: 1.1rem 2.4rem; font-size: 0.72rem; font-weight: 400; letter-spacing: 0.24em; text-transform: uppercase; background: var(--noir); color: var(--ivoire); border: 1px solid var(--noir); transition: background 0.3s, color 0.3s; }
+  .bouton:hover { background: transparent; color: var(--noir); }
+
+  /* Navbar */
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 1.9rem 5vw; background: var(--beige); border-bottom: 1px solid rgba(12, 12, 12, 0.12); }
+  .logo { font-family: var(--serif); font-size: 1.35rem; font-weight: 500; letter-spacing: 0.34em; color: var(--noir); }
+  nav ul { display: flex; gap: 2.8rem; list-style: none; font-size: 0.9rem; }
+  nav ul a { padding-bottom: 4px; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+  nav ul a:hover, nav ul li:last-child a { border-color: var(--noir); }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; min-height: calc(100vh - 5.6rem); background: var(--beige); }
+  .hero-texte { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 2.6rem; padding: 6rem 4vw 5rem 5vw; }
+  .hero h1 { font-size: clamp(3rem, 7.4vw, 7.4rem); line-height: 0.92; }
+  .hero p { max-width: 32ch; font-size: 1.1rem; }
+  .hero figure { position: relative; min-height: 460px; background: #2a2622; }
+  .hero figcaption { position: absolute; left: 1.6rem; bottom: 1.4rem; font-size: 0.78rem; letter-spacing: 0.08em; color: var(--ivoire); text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5); }
+
+  /* Introduction */
+  .intro { display: grid; grid-template-columns: 1fr 2fr; gap: 4vw; padding: 10rem 5vw; }
+  .intro h2 { margin-bottom: 2.4rem; }
+  .intro p { max-width: 58ch; font-size: 1.1rem; }
+  .intro p + p { margin-top: 1.2rem; }
+
+  /* La carte */
+  .carte { padding: 9rem 5vw 10rem; background: #fff; }
+  .carte h2 { margin-bottom: 5rem; }
+  .plat { display: grid; grid-template-columns: 9rem 1fr auto; gap: 2rem; align-items: baseline; padding: 2.4rem 0; border-top: 1px solid rgba(12, 12, 12, 0.18); }
+  .plat:last-of-type { border-bottom: 1px solid rgba(12, 12, 12, 0.18); }
+  .plat h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 2.4vw, 2.2rem); line-height: 1.15; color: var(--noir); }
+  .plat p { max-width: 52ch; margin-top: 0.4rem; font-size: 0.95rem; }
+  .prix { font-family: var(--serif); font-size: 1.6rem; color: var(--noir); }
+  .note { margin-top: 2rem; font-size: 0.85rem; color: var(--taupe); }
+
+  /* Expérience */
+  .experience { display: grid; grid-template-columns: 1.1fr 0.9fr; min-height: 90vh; background: var(--beige); }
+  .experience figure { background: #2a2622; min-height: 460px; }
+  .experience-texte { display: flex; flex-direction: column; justify-content: center; padding: 8vw 6vw; }
+  .experience h2 { margin: 1.6rem 0 2.4rem; }
+  .experience p + p { margin-top: 1.2rem; }
+  .experience p { max-width: 46ch; }
+
+  /* Réservation */
+  .reservation { padding: 12rem 5vw; text-align: center; background: var(--noir); color: var(--beige); }
+  .reservation h2 { color: var(--ivoire); max-width: 12ch; margin: 0 auto 3rem; font-size: clamp(2.6rem, 6vw, 5.8rem); }
+  .reservation .bouton { background: transparent; color: var(--ivoire); border-color: var(--ivoire); }
+  .reservation .bouton:hover { background: var(--ivoire); color: var(--noir); }
+  .reservation p { margin-top: 2.4rem; font-size: 0.9rem; color: var(--taupe); }
+
+  /* Footer */
+  footer { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 2.6rem 5vw; background: var(--noir); color: var(--ivoire); border-top: 1px solid rgba(247, 244, 238, 0.14); }
+  footer .logo { color: var(--ivoire); font-size: 1.1rem; }
+  footer span { font-size: 0.85rem; color: var(--taupe); }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    nav { flex-direction: column; gap: 1.2rem; }
+    nav ul { gap: 1.4rem; flex-wrap: wrap; justify-content: center; font-size: 0.82rem; }
+    .hero, .experience, .intro { grid-template-columns: 1fr; }
+    .hero-texte { padding: 4rem 6vw; }
+    .hero figure { min-height: 60vh; }
+    .intro { padding: 6rem 6vw; gap: 1.5rem; }
+    .carte { padding: 6rem 6vw; }
+    .plat { grid-template-columns: 1fr auto; gap: 0.6rem 1.5rem; }
+    .plat .label { grid-column: 1 / -1; }
+    .experience-texte { padding: 5rem 6vw; }
+    .reservation { padding: 8rem 6vw; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">MAISON VERDAN</a>
+  <ul>
+    <li><a href="#carte">La carte</a></li>
+    <li><a href="#maison">Le restaurant</a></li>
+    <li><a href="#experience">L'expérience</a></li>
+    <li><a href="#reservation">Réserver</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-texte">
+    <h1>Une cuisine<br>qui prend<br>le temps.</h1>
+    <p>Une table contemporaine où le produit, la saison et le geste occupent toute leur place.</p>
+    <a href="#reservation" class="bouton">Réserver une table</a>
+  </div>
+  <figure>
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=80" alt="Assiette gastronomique dressée avec précision">
+    <figcaption>Dressage du soir, carte d'automne</figcaption>
+  </figure>
+</header>
+
+<section class="intro" id="maison">
+  <span class="label">La maison</span>
+  <div>
+    <h2>L'excellence<br>dans la simplicité.</h2>
+    <p>Maison Verdan ouvre ses portes au cœur de Paris autour d'une conviction : un grand produit n'a besoin que de justesse. Le chef travaille en direct avec une poignée de producteurs, et la carte change avec ce que la saison veut bien offrir.</p>
+    <p>Vingt-huit couverts, une cuisine ouverte, un service discret. Rien n'est ajouté qui ne soit nécessaire.</p>
+  </div>
+</section>
+
+<section class="carte" id="carte">
+  <h2>Une cuisine<br>de saison.</h2>
+
+  <article class="plat">
+    <span class="label">Entrée</span>
+    <div>
+      <h3>Saint-Jacques de Normandie</h3>
+      <p>Snackée au beurre noisette, purée de céleri-rave, noisettes torréfiées et jus de coquille.</p>
+    </div>
+    <span class="prix">48 €</span>
+  </article>
+
+  <article class="plat">
+    <span class="label">Plat</span>
+    <div>
+      <h3>Pigeon de Racan rôti</h3>
+      <p>Laqué au miel de châtaignier, betterave cuite aux braises, jus à la cerise noire.</p>
+    </div>
+    <span class="prix">62 €</span>
+  </article>
+
+  <article class="plat">
+    <span class="label">Dessert</span>
+    <div>
+      <h3>Poire rôtie, sarrasin</h3>
+      <p>Poire conférence au beurre demi-sel, crumble de sarrasin, glace à la vanille de Tahiti.</p>
+    </div>
+    <span class="prix">24 €</span>
+  </article>
+
+  <p class="note">Menu dégustation en sept temps, 185 € — accord mets et vins, 95 €.</p>
+</section>
+
+<section class="experience" id="experience">
+  <figure>
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80" alt="Salle du restaurant, lumière douce et tables dressées">
+  </figure>
+  <div class="experience-texte">
+    <span class="label">L'expérience</span>
+    <h2>Le temps<br>d'une table.</h2>
+    <p>Ici, on ne presse rien. Les plats arrivent quand ils sont prêts, expliqués en quelques mots, jamais récités. La salle, sobre et chaude, laisse la lumière faire le reste.</p>
+    <p>Une soirée chez Maison Verdan dure ce qu'elle doit durer.</p>
+  </div>
+</section>
+
+<section class="reservation" id="reservation">
+  <h2>Votre table vous attend.</h2>
+  <a href="#" class="bouton">Réserver</a>
+  <p>Du mardi au samedi, de 19 h à 22 h 30.</p>
+</section>
+
+<footer>
+  <span class="logo">MAISON VERDAN</span>
+  <span>Paris · France</span>
+  <span>Projet conceptuel — ALEX STUDIO</span>
+</footer>
+
+</body>
+</html>
